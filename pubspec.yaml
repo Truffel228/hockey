@@ -32,19 +32,20 @@ dependencies:
     sdk: flutter
 
 
-  in_app_review:
-  firebase_core: ^2.1.1
+  
   google_fonts:
+  firebase_messaging: ^14.2.2
+  cupertino_icons: ^1.0.2
   flutter_secure_storage:
   flutter_inappwebview:
   url_launcher:
-  firebase_messaging: ^14.2.2
-  cupertino_icons: ^1.0.2
   overlay_support: ^2.1.0
   firebase_analytics: ^10.6.3
   flutter_local_notifications: ^9.8.0+1
   http:
   shared_preferences:
+  in_app_review:
+  firebase_core: ^2.1.1
   intl:
   dots_indicator:
   json_annotation:
