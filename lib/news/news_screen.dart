@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hockey_news/news/new_detailed.dart';
 import 'package:intl/intl.dart';
-import 'data.dart';
+import 'hockey_news_data_source.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);

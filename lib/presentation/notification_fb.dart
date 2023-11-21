@@ -1,6 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import 'local.dart';
+import 'local_notif.dart';
 
 class NotificationServiceFb {
   late final FirebaseMessaging _messaging;

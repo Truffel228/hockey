@@ -7,6 +7,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:in_app_review/in_app_review.dart';
 
+const String privP =
+    'https://docs.google.com/document/d/1EmFxGIaDPTR37ByUvYdmv-1IeWjA2mH4MeGIfTQvxPg/edit?usp=sharing';
+const String terms =
+    'https://docs.google.com/document/d/13Y1hjhWDBkYLm2-YLL-cPOVBhxOJAhtf2RppywtpUsg/edit?usp=sharing';
+const String support = 'https://forms.gle/chsSagNmZTgTBmyH7';
+const String appStoreId = '6472707824';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
@@ -21,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -61,9 +68,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTapped: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => Showing(
-                      url:
-                          'https://docs.google.com/document/d/1PuEL9YqW7HfA3r9ZpcvFzru44tmh2P1P58_DMgHQg2c/edit?usp=sharing',
+                    builder: (context) => const Showing(
+                      url: privP,
                       name: 'Privacy Policy',
                     ),
                   ),
@@ -75,9 +81,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTapped: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => Showing(
-                      url:
-                          'https://docs.google.com/document/d/1U9n2Q4ht5Q1EpQtteVd69qoTg-VeUiCkLlz-uqedYYE/edit?usp=sharing',
+                    builder: (context) => const Showing(
+                      url: terms,
                       name: 'Terms & Conditions',
                     ),
                   ),
@@ -89,8 +94,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTapped: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => Showing(
-                      url: 'https://forms.gle/WD4SqZQgL3qm2Kz98',
+                    builder: (context) => const Showing(
+                      url: support,
                       name: 'Support',
                     ),
                   ),
@@ -100,7 +105,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: 'Rate App',
                 iconP: 'assets/star.svg',
                 onTapped: () =>
-                    inAppReview.openStoreListing(appStoreId: '6472300004'),
+                    inAppReview.openStoreListing(appStoreId: appStoreId),
               ),
             ],
           ),

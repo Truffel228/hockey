@@ -1,5 +1,5 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:hockey_news/news/data.dart';
+import 'package:hockey_news/news/hockey_news_data_source.dart';
 import 'package:hockey_news/widgets/other/data.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -29,7 +29,7 @@ class HockeyRepository {
   Future<List<HockeyMatchModel>> matches() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String lastUpdateDate = prefs.getString('lastUpdateDate') ?? '';
-    final String todayDate = getCurrentDate();
+    final String todayDate = getFormattedToday();
     if (lastUpdateDate != todayDate) {
       final response = await http.get(
         Uri.https(apiHost, endpoint, {'date': todayDate}),

@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hockey_news/presentation/hockey_matches/data/hockey_repository.dart';
 import 'package:hockey_news/presentation/widgets/hockey_match_item.dart';
 import 'package:hockey_news/widgets/other/data.dart';
-import 'package:intl/intl.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
@@ -17,20 +16,20 @@ class CalendarScreen extends StatefulWidget {
 }
 
 class _CalendarScreenState extends State<CalendarScreen> {
-  String selectedDayToData = '';
+  String selectedDayString = '';
   final HockeyRepository dataRepository = HockeyRepository();
   final TextEditingController _textController = TextEditingController();
-  final FlutterSecureStorage _storage = const FlutterSecureStorage();
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
   String _cachedName = 'Your name';
   @override
   void initState() {
     super.initState();
     _loadCachedName();
-    selectedDayToData = getCurrentDate();
+    selectedDayString = getFormattedToday();
   }
 
   void _loadCachedName() async {
-    String? cachedEmail = await _storage.read(key: 'name');
+    String? cachedEmail = await storage.read(key: 'name');
     if (cachedEmail != null) {
       setState(() {
         _cachedName = cachedEmail;
@@ -60,7 +59,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 String email = _textController.text;
                 if (email.isNotEmpty) {
                   // Save the email to secure storage
-                  await _storage.write(key: 'name', value: email);
+                  await storage.write(key: 'name', value: email);
                   setState(() {
                     _cachedName = email;
                   });
@@ -178,7 +177,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   setState(() {
                     _selectedDay = selectedDay;
                     _now = focusedDay;
-                    selectedDayToData = getStringDataFromDate(_selectedDay!);
+                    selectedDayString = getFormattedDataFromDate(_selectedDay!);
                   });
                 },
                 selectedDayPredicate: (day) {
@@ -241,7 +240,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
             ),
             Container(
               child: FutureBuilder(
-                future: dataRepository.matchesByDate(selectedDayToData),
+                future: dataRepository.matchesByDate(selectedDayString),
                 builder: (context, snapshot) {
                   List<HockeyMatchModel> matchData = snapshot.data ?? [];
 

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'data.dart';
+import 'hockey_news_data_source.dart';
 
 class DetailedHockeyNew extends StatelessWidget {
   const DetailedHockeyNew({Key? key, required this.news}) : super(key: key);

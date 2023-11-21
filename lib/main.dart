@@ -6,10 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'main_screen.dart';
 import 'on_boarding_screen.dart';
 import 'news/fb_options.dart';
-import 'news/data.dart';
+import 'news/hockey_news_data_source.dart';
 import 'presentation/hockey_matches/data/hockey_repository.dart';
 import 'presentation/hockey_matches/show_screen.dart';
-import 'presentation/notification.dart';
+import 'presentation/notification_fb.dart';
 
 late SharedPreferences prefs;
 final remoteConfig = FirebaseRemoteConfig.instance;
